@@ -1,0 +1,44 @@
+#!/bin/bash
+
+while getopts d:b:g:r:c: flag
+do
+    case "${flag}" in
+        d) dataset=${OPTARG};;
+        b) beta=${OPTARG};;
+        g) gamma=${OPTARG};;
+        r) reps=${OPTARG};;
+        c) cpucores=${OPTARG};;
+    esac
+done
+rm *sh;
+rm -r cmd;
+python cmd_gen.py -d $dataset -b $beta -g $gamma -r $reps -c $cpucores;
+chmod +x *sh cmd/*sh;
+g++ -O3 -std=c++11 main.cpp -o run;
+chmod +x parallel_commands
+#./parallel_commands "./0.sh" "./1.sh" "./2.sh" "./3.sh" "./4.sh" "./5.sh" "./6.sh" "./7.sh" "./8.sh" "./9.sh" "./10.sh" "./11.sh" "./12.sh" "./13.sh" "./14.sh" "./15.sh" "./16.sh" "./17.sh" "./18.sh" "./19.sh"
+
+#for cmd in "$@"; do {
+#  echo "Process \"$cmd\" started";
+#  $cmd & pid=$!
+#  PID_LIST+=" $pid";
+#} done
+
+ccn=$(($cpucores + 1))
+for ((i=1;i<ccn;i++))
+do
+  echo "Part $i started";
+  "./$i.sh" & pid=$!
+  PID_LIST+=" $pid";
+done
+
+trap "kill $PID_LIST" SIGINT
+
+echo "Parallel processes have started";
+
+wait $PID_LIST
+
+echo
+echo "All processes have completed";
+
+python analysis.py -d $dataset -b $beta -g $gamma -r $reps -c $cpucores;
