@@ -354,6 +354,9 @@ max_size2possible_t[25] = [Fraction(2, 25), Fraction(1, 12), Fraction(2, 23), Fr
                            Fraction(17, 18), Fraction(18, 19), Fraction(19, 20), Fraction(20, 21), Fraction(21, 22),
                            Fraction(22, 23), Fraction(23, 24), Fraction(24, 25), Fraction(1, 1)]
 
+for k, v in max_size2possible_t.items():
+    max_size2possible_t[k] = sorted(set(v))
+
 ds_names = ['coauth-DBLP',
             'coauth-MAG-Geology',
             'NDC-classes',
