@@ -88,12 +88,12 @@ The output of each trial would be *b* lines, where each line consists of *(1) ti
 
 ### citation
 
-	@article{Bu2023interplay,
-	  title={Interplay between topology and edge weights in real-world graphs: concepts, patterns, and an algorithm},
-	  author={Bu, Fanchen and Kang, Shinhwan and Shin, Kijung},
+	@article{Bu2023ktHypercore,
+	  title={Hypercore Decomposition for Non-Fragile Hyperedges: Concepts, Algorithms, Observations, and Applications},
+	  author={Bu, Fanchen and Lee, Geon and Shin, Kijung},
 	  journal={Data Mining and Knowledge Discovery},
 	  year={2023},
 	  volume={37},
-	  pages={2139 - 2191},
+	  pages={2389 - 2437},
 	  publisher={Springer}
 	}
