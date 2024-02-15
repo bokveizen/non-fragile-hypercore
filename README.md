@@ -85,3 +85,15 @@ We consider the **collpased *(k,t)-hypercore problem*** to detect the vulnerabil
 	# ./run 10 2 10 0.6 100 1
  
 The output of each trial would be *b* lines, where each line consists of *(1) time used in this round*, *(2) the chosen collapser*, *(3) the number of followers*.
+
+### citation
+
+	@article{Bu2023interplay,
+	  title={Interplay between topology and edge weights in real-world graphs: concepts, patterns, and an algorithm},
+	  author={Bu, Fanchen and Kang, Shinhwan and Shin, Kijung},
+	  journal={Data Mining and Knowledge Discovery},
+	  year={2023},
+	  volume={37},
+	  pages={2139 - 2191},
+	  publisher={Springer}
+	}
